@@ -25,7 +25,9 @@ export const getWalletAddressTool: ToolConfig<GetWalletAddressArgs> = {
 };
 
 async function getWalletAddress(): Promise<Address> {
+    console.log('🔍 Getting wallet address...');
     const walletClient = createViemWalletClient();
     const [address] = await walletClient.getAddresses();
+    console.log('📍 Wallet address:', address);
     return address;
 }
