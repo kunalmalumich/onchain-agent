@@ -9,9 +9,11 @@ export function createViemWalletClient() {
             throw new Error("⛔ PRIVATE_KEY environment variable is not set.");
         }
 
-        const account = privateKeyToAccount(
-            process.env.PRIVATE_KEY as `0x${string}`,
-        );
+        const privateKey = process.env.PRIVATE_KEY?.startsWith('0x') 
+            ? process.env.PRIVATE_KEY 
+            : `0x${process.env.PRIVATE_KEY}`;
+            
+        const account = privateKeyToAccount(privateKey as `0x${string}`);
 
         return createWalletClient({
             account,
