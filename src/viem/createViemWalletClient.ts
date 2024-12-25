@@ -1,6 +1,6 @@
 import { createWalletClient, http } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
-import { abstractTestnet, mainnet } from "viem/chains";
+import { abstractTestnet, base } from "viem/chains";
 import { eip712WalletActions } from "viem/zksync";
 
 export function createViemWalletClient() {
@@ -17,7 +17,7 @@ export function createViemWalletClient() {
 
         return createWalletClient({
             account,
-            chain: mainnet,
+            chain: base,
             transport: http(
                 "https://eth-mainnet.g.alchemy.com/v2/ROvun5haPudCWs1N8O0IJGmEAM94sNRu",
             ),
