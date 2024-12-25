@@ -1,9 +1,11 @@
 import { createPublicClient, http } from "viem";
-import { abstractTestnet } from "viem/chains";
+import { abstractTestnet, mainnet } from "viem/chains";
 
 export function createViemPublicClient() {
     return createPublicClient({
-        chain: abstractTestnet,
-        transport: http(),
+        chain: mainnet,
+        transport: http(
+            "https://eth-mainnet.g.alchemy.com/v2/ROvun5haPudCWs1N8O0IJGmEAM94sNRu",
+        ),
     });
 }
